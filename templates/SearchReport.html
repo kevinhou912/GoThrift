@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{% block head %}
+<title>Search Posts</title>
+{% endblock %}
+
+{% block body %}
+<div style="display:flex;justify-content:center;position:relative">
+<h1 style="color:indianred;text-align:center"><b>View Posts</b></h1><br>
+    <div style="position:absolute;top:20px;right:20px;">
+        <a style=background-color:#D37373;color:white;border-radius:8px;padding:10px; href="/CreateReport">Add Post</a>
+    </div>
+</div>
+<p style="text-align:center">Enter Tags for Search:</p>
+<div style="width:70%;padding-left:35%">
+    <form style="display:flex" method="post" action="/SearchReport">
+        <input class="form_input" style="width:45%" type="text" id="searchText" name="searchText">
+        <input class="button" type="submit" value="Search">
+        <br>
+    </form>
+    {% if searchText%}
+    <p>{{searchText}} <a href="/Search">Clear search results</a></p>
+    {% endif %}
+</div><br><br>
+
+{% if Report['error'] %}
+    <div class="alert">
+        <strong>{{Report['error']}}</strong>
+    </div>
+{% endif %}
+    <div class="card-columns">
+        {% if not Report['error'] %}
+            {% for key,value in Report.items() %}
+            <div class="card" style="width:400px;height:600px">
+                <br>
+                <h5><b>{{ value["store_name"] }}</b></h5>
+                <p><b>Location:</b> {{ value["theme"] }}</p>
+                <p class="p-card"> {{ value["description"] }}</p>
+                <img class="cropped1" src = "{{value['report_image_url']}}" alt="Report_image" width="400" height="250">
+                <br><br>
+                <p>
+                    <b>Tags:</b>
+                    {% for tag in value["store_tag"] %}
+                    #{{tag}}
+                    {% endfor %}
+                </p>
+                    <div style="text-align:center">
+                        <div class="button cardbtn">
+                        <form method="post" action="/ViewReport/{{key}}" enctype="multipart/form-data">
+                            <input class="button" type="submit" value="View Post">
+                        </form>
+                    </div>
+                        <br><br>
+                </div>
+            </div>
+        <br><br>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% block head %}
+    <title> Create New Report </title>
+{% endblock %}
+
+{% block body %}
+<h1 style="color:indianred"><b>Create Post</b></h1>
+<div class="container-sm p-3 my-3">
+<form method="post" action="/SubmitReport" enctype="multipart/form-data">
+    <!-- <label for="location">Location</label><br> -->
+    <h6 class="required">Store Name</h6>
+    <input class="form_input" type="text" id="store_name" name="store_name" required><br>
+
+    <h6>Description</h6>
+    <input class="form_input" type="text" id="store_description" name="store_description" ><br>
+
+    <h6 class="required">Tags</h6>
+    <input class="form_input" type="text" id="store_tag" name="store_tag" required><br>
+
+    <p><h6 class="required">Select Location </h6>(Didn't find your theme? <a href="/CreateTheme">Create Theme here</a>)</p>
+    {% if Theme['error'] %}
+        <h4 style="color:red">{{Theme['error']}}</h4>
+        <br>
+    {% endif %}
+    {% if not Theme['error'] %}
+            <select class="form_input" name="Theme_list" id="Theme_list">
+                {% for key,value in Theme.items() %}
+                    <option  value="{{value['id']}}"> {{value["location"]}} </option>
+                {% endfor %}
+            </select>
+    {% endif %}
+    <br>
+    <h6>Upload Image</h6>
+    <input type="file" class="form_input" id="report_img" name="upload" accept="image/*">
+    <br><br>
+        {% if Theme['error'] %}
+            <input type="submit" value="Create Post" disabled>
+    {% endif %}
+    {% if not Theme['error'] %}
+            <input class="button cardbtn" type="submit" value="Create Post">
+    {% endif %}
+
+</form>
+<br><br>
+</div>
+{% endblock %}

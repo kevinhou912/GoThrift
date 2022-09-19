@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block head %}
+<head>
+    <title> Create New Location </title>
+     <script>
+     setTimeout(function() {
+      document.getElementById("error_msg").style.display = "none";
+      },3000);
+      setTimeout();
+     </script>
+</head>
+{% endblock %}
+
+{% block body %}
+<h1 style="color:indianred"><b>Create Theme</b></h1>
+<div id="error_msg"><h5 style="color:red">{{error_msg}}</h5></div>
+<div class="container-sm p-3 my-3" >
+     <form method="post" action="/SubmitTheme" enctype="multipart/form-data">
+          <!-- <label for="location">Location</label><br> -->
+          <h6 class="required">Theme</h6>
+          <input class="form_input" type="text" id="location" name="location" required><br>
+
+          <h6>Description</h6>
+          <input class="form_input" type="text" id="description" name="description"><br>
+
+          <h6>Image</h6>
+          <input class="form_input" type="file" id="img" name="upload" accept="image/*">
+          <br>
+          <br>
+         <div class="button cardbtn">
+             <input class="button" type="submit" value="Create">
+         </div>
+     </form>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% block head %}
+<head>
+    <title>View Theme</title>
+</head>
+
+{% endblock %}
+<style>
+    body {;
+        text-align: center;
+        background-color: linen;
+</style>
+{% block body %}
+<body style="background-color:linen">
+<h1 style="text-align:center;color:indianred"><b>{{ Theme["location"] }}</b></h1>
+<br>
+<p style="text-align:center;margin-left:100px;margin-right:100px"> {{ Theme["description"] }}</p>
+</div>
+<br>
+
+<div class="card-columns" style="text-align:center">
+    {% for key,value in Reports.items() %}
+    <div class="card" style="width:400px">
+        <br>
+        <h5><b>Store Name:</b> {{ value["store_name"] }}</h5>
+        <p class="p-card">{{ value["description"] }}</p>
+        <img class="cropped1" src ="{{ value['report_image_url']}}" alt="Report_image" >
+        <p>
+            <b>Tags:</b>
+            {% for tag in value["store_tag"] %}
+            #{{tag}}
+            {% endfor %}
+        </p>
+        <div style="text-align:center">
+            <form method="post" action="/ViewReport/{{key}}" enctype="multipart/form-data">
+                <input class="button cardbtn" type="submit" value="View Post">
+            </form>
+        </div>
+        <br>
+    </div>
+    <br><br>
+    {% endfor %}
+    </div>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'index.html' %}
+{% block head %}
+    <title>View All Themes</title>
+{% endblock %}
+
+{% block body %}
+<div style="display:flex;justify-content:center;position:relative">
+    <h1 style="color:indianred;text-align:center"><b>View All Themes</b></h1>
+    <div style="position:absolute;top:0px;right:20px;text-align:right;margin:20px">
+        <a style=background-color:#D37373;color:white;border-radius:8px;padding:10px; href="/CreateTheme">Add Theme</a>
+</div>
+</div>
+<h3><b>Subscribed Themes</b></h3> <br>
+    {% if Subscribed_themes['error'] %}
+        <div class="alert">
+            <strong>{{Subscribed_themes['error']}}</strong>
+        </div>
+    {% endif %}
+<div class="card-columns">
+
+    {% if not Subscribed_themes['error'] %}
+        {% for key,value in Subscribed_themes.items() %}
+        <div class="card" style="width:400px">
+        <br>
+        <h5><b>{{ value["location"] }}</b></h5>
+        <p class="p-card"><b>Description:</b> {{ value["description"] }}</p>
+        <img class="cropped1" src = "{{value['theme_image_url']}}" alt="Theme_image">
+            <br>
+            <br>
+            <div id="container1">
+                <div class="button cardbtn" >
+                    <form method="post" action="/UnsubscribeTheme/{{key}}" enctype="multipart/form-data">
+                        <input type="text" hidden="true" id="unsubscribe_id" name="id" value="{{value['id']}}" >
+                        <input class="button" type="submit" value="Unsubscribe">
+                    </form>
+                </div>
+                <div class="button cardbtn" >
+                    <form method="post" action="/ViewTheme/{{key}}" enctype="multipart/form-data">
+                        <input class="button" type="submit" value="View">
+                    </form>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+<br>
+<br>
+
+<h3><b>Available Themes</b></h3><br>
+    {% if Unsubscribed_themes['error'] %}
+        <div class="alert">
+            <strong>{{Unsubscribed_themes['error']}}</strong>
+        </div>
+    {% endif %}
+<div class="card-columns">
+    {% if not Unsubscribed_themes['error'] %}
+        {% for key,value in Unsubscribed_themes.items() %}
+        <div class="card" style="width:400px">
+        <br>
+        <h5><b>{{ value["location"] }}</b></h5>
+        <p class="p-card"><b>Description:</b> {{ value["description"] }}</p>
+        <img class="cropped1" src = "{{value['theme_image_url']}}" alt="Theme_image" width="400" height="250">
+            <br>
+            <br>
+            <div id="container2">
+                <div class="button cardbtn" >
+                    <form method="post" action="/SubscribeTheme" enctype="multipart/form-data">
+                        <input type="text" hidden="true" id="subscribe_id" name="id" value="{{value['id']}}" >
+                        <input type="text" hidden="true" id="location1" name="location" value="{{value['location']}}" >
+                        <input type="text" hidden="true" id="description1" name="description" value="{{value['description']}}" >
+                        <input class="button" type="submit" value="Subscribe">
+                    </form>
+                </div>
+                <div class="button cardbtn">
+                    <form method="post" action="/ViewTheme/{{key}}" enctype="multipart/form-data">
+                        <input class="button" type="submit" value="View">
+                    </form>
+                </div>
+            </div>
+
+
+        <br>
+        </div>
+        {% endfor %}
+    {% endif %}
+
+</div>
+{% endblock %}
+
+
+

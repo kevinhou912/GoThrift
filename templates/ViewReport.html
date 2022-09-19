@@ -1,0 +1,163 @@
+{% extends 'index.html' %}
+{% block head %}
+
+<script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
+    <title>View Post</title>
+
+{% endblock %}
+
+{% block body %}
+<body style="background-color:linen">
+<h1 style="text-align:center;color:indianred"><b>{{ Report["store_name"] }}</b></h1>
+<div style="text-align:center">
+
+    <br>
+
+    <p style="text-align:center;margin-left:100px;margin-right:100px"> {{ Report["description"] }}</p>
+    <input hidden="true" id="gpslat" value="{{ Report['gpslat']}}">
+    <input hidden="true" id="gpslong" value="{{ Report['gpslong']}}">
+    <input hidden="true" id="report_image_url" value="{{ Report['report_image_url']}}">
+    <input hidden="true" id="report_name" value="{{ Report['store_name']}}">
+
+    <p>
+        <b>Tags:</b>
+        {% for tag in Report["store_tag"] %}
+        #{{tag}}
+        {% endfor %}
+    </p>
+
+     <div id="mappos" style="width:100%">
+        <h6>Store Location:</h6>
+         <input id="pac-input" class="controls" type="text" placeholder="Search Box"/> <br>
+         <div id="map"></div>
+         <br>
+         <br>
+         <br>
+     </div>
+    <div style="height:100px">
+    </div>
+
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+     <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_1TKnUl_MMB7G3aCuKyFkRHRwGhn2M6w&callback=initAutocomplete&libraries=places&v=weekly"
+      async
+    ></script>
+<script>
+ var gpslat = parseFloat(document.getElementById("gpslat").value);
+ var gpslong = parseFloat(document.getElementById("gpslong").value);
+ var image_url = document.getElementById("report_image_url").value;
+ var report_name = document.getElementById("report_name").value;
+ console.log(report_name);
+ console.log(image_url);
+function initAutocomplete() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: gpslat, lng: gpslong },
+    zoom: 15,
+    mapTypeId: "roadmap",
+  });
+
+  console.log(map)
+  var clicked = false;
+  var infowindow = new google.maps.InfoWindow({
+    maxWidth: 200
+  });
+  const markers = locations.map(addMarker);
+
+  function addMarker(i){
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(i[0], i[1]),
+    });
+    marker.addListener("mouseover",
+    () => {
+      if (!clicked) {
+        infowindow.setContent(i[2]);
+        infowindow.open(map, marker);
+      }
+    });
+    marker.addListener("mouseout",
+    () => {
+      if (!clicked) {
+        infowindow.close();
+      }
+    });
+    marker.addListener("clicked",
+    () => {
+        clicked = true;
+        infowindow.setContent(i[2]);
+        infowindow.open(map, marker);
+
+    });
+    marker.addListener("closeclick",
+    () => {
+        clicked = false;
+
+    });
+    return marker;
+  }
+
+
+
+  // Add a marker clusterer to manage the markers.
+  new MarkerClusterer(map, markers, {
+    imagePath:
+      "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+  });
+
+  // Create the search box and link it to the UI element.
+  const input = document.getElementById("pac-input");
+  const searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener("bounds_changed", () => {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  // [START maps_places_searchbox_getplaces]
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener("places_changed", () => {
+    const places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+    // Clear out the old markers.
+
+    // For each place, get the icon, name and location.
+    const bounds = new google.maps.LatLngBounds();
+    places.forEach((place) => {
+      if (!place.geometry || !place.geometry.location) {
+        console.log("Returned place contains no geometry");
+        return;
+      }
+      const icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25),
+      };
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+  });
+
+}
+
+const locations = [
+  [ gpslat, gpslong,'<div><p>'+ report_name +'</p><img style="height:100px;width:150px;" src='+image_url+ '/></div>' ]
+];
+
+</script>
+
+</div>
+
+</body>
+{% endblock %}

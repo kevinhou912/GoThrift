@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+{% block head %}
+    <title>Management Page</title>
+{% endblock %}
+
+{% block body %}
+<div style="display:flex;justify-content:center;position:relative">
+    <h1 style="color:indianred;text-align:center"><b>My Profile</b></h1>
+    <div style="position:absolute;top:20px;right:20px;">
+        <a style=background-color:#D37373;color:white;border-radius:8px;padding:10px; href="/CreateTheme">Add Theme</a>
+        <a style=background-color:#D37373;color:white;border-radius:8px;padding:10px; href="/CreateReport">Add Post</a>
+    </div>
+</div>
+<h3 style="text-align=left"><b>My Posts</b></h3>
+<br>
+{% if user_reports['error'] %}
+    <div class="alert">
+        <strong>{{user_reports['error']}}</strong>
+    </div>
+{% endif %}
+<div class="card-columns">
+
+    {% if not user_reports['error'] %}
+        {% for key,value in user_reports.items() %}
+            <div class="card" style="width:400px;height:600px">
+            <br>
+            <h5>{{ value["store_name"] }}</h5>
+            <p><b>Location:</b> {{ value["theme"] }}</p>
+            <p class="p-card"> {{ value["description"] }}</p>
+            <img class="cropped1" src = "{{value['report_image_url']}}" alt="Theme_image" width="400" height="250">
+            <br><br>
+            <p>
+                <b>Tags:</b>
+                {% for tag in value["store_tag"] %}
+                #{{tag}}
+                {% endfor %}
+            </p>
+            <div style="text-align:center">
+                <form method="post" action="/ViewReport/{{key}}" enctype="multipart/form-data">
+                    <input class="button cardbtn" type="submit" value="View Post">
+                </form>
+            </div>
+            <br>
+            </div>
+    {% endfor %}
+    {% endif %}
+        </div>
+</div>
+<br>
+<br>
+
+<h3 style="text-align:center"><b>Subscribed Themes</b></h3>
+<br>
+{% if user_theme['error'] %}
+    <div class="alert">
+        <strong>{{user_theme['error']}}</strong>
+    </div>
+{% endif %}
+<div class="card-columns">
+    {% if not user_theme['error'] %}
+        {% for key,value in user_theme.items() %}
+        <div class="card" style="width:400px;">
+            <br>
+            <h5>{{ value["location"] }}</h5>
+            <p class="p-card"> {{ value["description"] }}</p>
+            <img class="cropped1" src = "{{value['theme_image_url']}}" alt="Theme_image" width="400" height="250">
+            <br><br>
+                <form method="post" action="/ViewTheme/{{key}}" enctype="multipart/form-data">
+                    <input class="button cardbtn" type="submit" value="View Theme">
+                </form>
+            <br>
+        </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+
+    </div>
+</div>
+{% endblock %}

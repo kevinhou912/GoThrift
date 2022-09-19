@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gothrift-320815",
+  "private_key_id": "98a4f55ae7b8cba376f7fec52f18628c54deab3b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC5ac7SE0sJffM7\n7FE7k4EmV+PVMCIY8n6OssaIClSwisJIIDP8yzkusG6q93lx0kFEc0/kVrq+E1/X\nNXqp6SXq4wE+8T0A3ByJOSNJid0OJeJ4oia/QtHcwXJY2tkARbclo+KrV5FqhoGY\n0OBwldSaaYal5fKG7311HMCPVBfAhVQjDQCFXq0L1Y9d2srJI+Z7xxoPs8D+CzOW\nbXWxxlz79iHPYWipk+IRdy8RfKfDP1aKpfCsGJsnvUnHiLAlDdBdG2ZO8Xp103Zf\n6m08FF3v2BIpOvxKce1eX5mcTdUh5RvWQTw4U66VnSV3EjSJCXe5lMnIr25wcwvo\no076SaTZAgMBAAECggEADOXmZEjBTIy9ceqzj/Bn6JHuoHLzvEaKNUUMeIQ3dfyB\nHWFYHHrKpIvTdwM2KIvWzHs1EI5T+UsBvMfUm6NDZv6ZpJZFhxzIw2b9JG15ujU6\ndufYyC9OyAuQ98tpkxJGdlDbQM4bqIxo0YeeRVa27nLu0fWYFHjugkoYvx+7c0H0\n0dqdwQqlL2qi1p8+ckwTCsfZfNonHYvTSFErmMG3hKuOurnQ6ueCOHyHnw7BXCCq\n0++FrN/qkJgA8thutLA4mq9Mt6JPVV6HJYUT1dCEEXalNP4ArGwICLdWi2eMYwgW\nycFxy4lZHdIJhlWavlfxq3ah7yNXMgEDqRnXQOHm8QKBgQDejdEj0RrW1MT1wXaZ\ndfC2Qhw/rN5NTaU7HHYOn+4tThk8VJPTRIAwQrhP1Ss44O8gGu5rUcPqvhcNXcTI\nCLTjNCp6LUT6BqUehPPrCMQDVTObo9Cmn0J/d157mspa8RuQEQV3BKWylCXG9yZ6\nPqN3xcUFsJ0ESj79J7npT3JDlQKBgQDVRxnbCe541GomM+L7Rpeuvs+69RNVfu5g\nA5I4aTNOfDg7/rsvflJamlAiBjjQmKO20tziYCMxpcHGyCLxM1/Ctrti5e0F3v0f\n3lHK+vkZaXgCMXSSvSuyl1vmxCItLDZS5YIZQ3NTCGurhTEgxavL/QDu846paffE\nvOWPEUFLNQKBgCnyELjvcF+NOpIXJINH91Zin3Bg5IUtXTcG5jlba0ier6LvTe1D\nu+VcreBeDQdrXaZvbQBNKN/VdALQ6YXKHk20R00/uwBkwDpAVLi3rjnylQeAmJLO\n8XmUxfoF8p2xU8CTdLQ57AD8ayJU8quXorewTrID15Q3aifMlP2kO6UBAoGBAKKz\n1xmufepXwZLbSnF+7QA2OKrbg6BZcOh2UPoP50Acq5m5PnuA1rqftjn+nSElEN/M\nBQ39YVvio+1NiLqRAqC8Xj+YQDWWY2wIYkWDKL0mJJMnv1KiVc+sgEOPpLLpY5fh\n1loHhtb1OY5j0ZK6udCodinUTCUZ3haMNGPsOe9xAoGBAJp2KfNTfNwrESMm6VsS\nofy6MDkTgkiqCr9ILpY84SNF2A+H3S9tqloBL5kyaYtLYfFP/PH6oEGUf9zxhBx2\ner4ljClorXQRIQZIcNoMZP7jNbf8lJio4ev1OquVtT2Kh/Vkqe+6Mt9p6jKh01Bb\nCN+0O16X3v6bEwo5cg5VWaB8\n-----END PRIVATE KEY-----\n",
+  "client_email": "gothriftserviceaccount1@gothrift-320815.iam.gserviceaccount.com",
+  "client_id": "114596726811346765990",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gothriftserviceaccount1%40gothrift-320815.iam.gserviceaccount.com"
+}

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block head %}
+<script>
+    sessionStorage.setItem('user_id','{{session['user_id']}}');
+
+</script>
+    <title>Welcome</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<img src="./static/images/Logo.jpg" alt="GoThrift Logo" width="13%" height="auto">
+<br>
+<br>
+<div class="container remove-all-margin home-container" style="border:3px solid #F8F9FA">
+    <div class="row align-items-center">
+        <div class="col">
+            <img src="./static/images/Thrift2.png" alt="Thrift Store Collage" width="100%" height="auto">
+        </div>
+        <div class="col">
+            <h5 style="line-height:200%">GoThrift is an Austin-based, crowdsourcing website that allows its users to find
+                thrift shops around the city. Find vintage clothing, antique furniture, and much more! Search for thrift stores in your area
+                and upload your own posts to share your experience with others. Start now, and GoThrift!</h5>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

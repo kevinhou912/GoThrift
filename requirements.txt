@@ -1,0 +1,9 @@
+Flask==2.0.1
+google-cloud-datastore==2.1.5
+google-auth==1.33.1
+requests==2.26.0
+google-cloud-storage
+python-firebase
+gunicorn==19.9.0
+-e git://github.com/ozgur/python-firebase.git#egg=python-firebase
+pyrebase4

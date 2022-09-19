@@ -1,0 +1,258 @@
+/**
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+   * element that contains the map. */
+
+#mapbody {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+        height: 400px;
+         width: 400px;
+         margin:0px auto;
+         display:inline-block
+
+      }
+
+#mappos {width: 90%;
+                height: 90%;
+                position:absolute;
+                text-align:center
+          }
+
+/* Optional: Makes the sample page fill the window. */
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+#target {
+  width: 345px;
+}
+
+
+body {;
+  text-align: center;
+  background-color: linen;
+}
+.center {
+    text-align: center;}
+
+.topnav {
+  overflow: hidden;
+  background-color: white;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav a:hover {
+  background-color: indianred;
+  color: white;
+}
+
+.topnav a.active {
+  background-color: indianred;
+  color: white;
+}
+
+.cropped1 {
+    width: 400px; /* width of container */
+    height: 250px; /* height of container */
+    object-fit: cover;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #CBC47D;
+  color: black;
+  width:500px;
+  margin: auto;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.required:after {
+    content:" *";
+    color: red;
+}
+
+.button {
+  background-color: #D37373; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px 10px;
+  border-radius: 8px;
+}
+
+.cardbtn {
+    background-color:#D37373;
+    padding: 6px;
+
+}
+
+.box {
+  position:absolute;
+   top:15%;
+   left:30%;
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+.form_input {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1rem;
+	margin: 0 auto;
+  padding: 10px 10px;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: solid;
+  width: 30%;
+  display: block;
+  transition: all 0.3s;
+  border-width : 1px;
+}
+
+#container1, #container2 {
+    text-align: center
+}
+
+#ViewThemeDesc {
+    text-align:center
+}
+
+input[type=file]::file-selector-button {
+  border: 1px solid #D37373;
+  padding: 6px;
+  margin: 0px 10px;
+  border-radius: 8px;
+  background-color: white;
+  color: #D37373;
+}
+
+.p-card{
+height:100px;
+overflow-y: scroll;
+overflow-x: hidden;
+margin: 10px;
+}
+
+.remove-all-margin{
+padding-left:0;
+}
+
+.home-container{
+    background:#F8F9FA;
+}
+
+
